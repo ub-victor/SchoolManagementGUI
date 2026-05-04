@@ -38,7 +38,7 @@ cd /home/victoire/Desktop/My-Project/SchoolManagementGUI
 find src -name '*.java' | sort | xargs javac -cp "src:lib/mysql-connector-j-9.6.0.jar"
 java -cp "src:lib/mysql-connector-j-9.6.0.jar" com.school.Main
 ```
-
+Run Directly
 ```bash
 cd /home/victoire/Desktop/My-Project/SchoolManagementGUI
 java -cp "src:lib/mysql-connector-j-9.6.0.jar" com.school.Main
