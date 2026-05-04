@@ -1,0 +1,12 @@
+{
+  "java.home": "/usr/lib/jvm/java-21-openjdk-amd64",
+  "java.jdt.ls.vmargs": "-XX:+UseParallelGC -XX:GCTimeRatio=4 -XX:AdaptiveSizePolicyWeight=90 -Dsun.zip.disableMemoryMapping=true -Xmx2G -Xms100m -Xlog:disable",
+  "java.configuration.updateBuildConfiguration": "automatic",
+  "java.eclipse.downloadSources": true,
+  "java.project.sourcePaths": ["src"],
+  "java.project.outputPath": "out",
+  "[java]": {
+    "editor.defaultFormatter": "redhat.java",
+    "editor.formatOnSave": true
+  }
+}

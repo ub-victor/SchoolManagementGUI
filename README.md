@@ -39,6 +39,11 @@ find src -name '*.java' | sort | xargs javac -cp "src:lib/mysql-connector-j-9.6.
 java -cp "src:lib/mysql-connector-j-9.6.0.jar" com.school.Main
 ```
 
+```bash
+cd /home/victoire/Desktop/My-Project/SchoolManagementGUI
+java -cp "src:lib/mysql-connector-j-9.6.0.jar" com.school.Main
+```
+
 ## Project Structure
 
 - `src/com/school/Main.java` - application entry point
