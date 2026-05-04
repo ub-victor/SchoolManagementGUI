@@ -1,6 +1,6 @@
 package com.school.dao;
 
-import com.school.model.Student;
+import com.school.model.*;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
