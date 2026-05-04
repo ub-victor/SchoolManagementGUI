@@ -99,6 +99,7 @@ public class CoursePanel extends JPanel {
     }
 
     private void refreshTable() {
+        refreshTeacherCombo();
         tableModel.setRowCount(0);
         List<Course> courses = controller.getAllCourses();
         if (courses != null) {

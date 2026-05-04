@@ -99,9 +99,15 @@ public class StudentPanel extends JPanel {
         String id = txtId.getText().trim();
         String name = txtName.getText().trim();
         String email = txtEmail.getText().trim();
+        String feesText = txtFees.getText().trim();
+        if (id.isEmpty() || name.isEmpty() || email.isEmpty() || feesText.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "All student fields are required");
+            return;
+        }
         double fees;
         try {
-            fees = Double.parseDouble(txtFees.getText().trim());
+            fees = Double.parseDouble(feesText);
+            if (fees < 0) throw new NumberFormatException();
         } catch (NumberFormatException e) {
             JOptionPane.showMessageDialog(this, "Invalid fee amount");
             return;
@@ -118,12 +124,27 @@ public class StudentPanel extends JPanel {
 
     private void updateStudent() {
         String id = txtId.getText().trim();
-        if (id.isEmpty()) return;
-        Student s = new Student(id, txtName.getText().trim(), txtEmail.getText().trim(),
-                Double.parseDouble(txtFees.getText().trim()));
+        String name = txtName.getText().trim();
+        String email = txtEmail.getText().trim();
+        String feesText = txtFees.getText().trim();
+        if (id.isEmpty() || name.isEmpty() || email.isEmpty() || feesText.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "All student fields are required");
+            return;
+        }
+        double fees;
+        try {
+            fees = Double.parseDouble(feesText);
+            if (fees < 0) throw new NumberFormatException();
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(this, "Invalid fee amount");
+            return;
+        }
+        Student s = new Student(id, name, email, fees);
         if (controller.updateStudent(s)) {
             JOptionPane.showMessageDialog(this, "Student updated");
             refreshTable();
+        } else {
+            JOptionPane.showMessageDialog(this, "Update failed");
         }
     }
 

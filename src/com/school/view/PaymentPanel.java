@@ -20,44 +20,36 @@ public class PaymentPanel extends JPanel {
         this.controller = controller;
         setLayout(new BorderLayout());
 
-        // Top panel: student selection and payment
-        JPanel topPanel = new JPanel(new GridLayout(3, 2, 10, 10));
-        topPanel.setBorder(BorderFactory.createTitledBorder("Make Payment"));
-        topPanel.add(new JLabel("Select Student:"));
+        // Payment form panel
+        JPanel formPanel = new JPanel(new GridLayout(2, 2, 10, 10));
+        formPanel.setBorder(BorderFactory.createTitledBorder("Make Payment"));
+        formPanel.add(new JLabel("Select Student:"));
         cmbStudent = new JComboBox<>();
-        topPanel.add(cmbStudent);
-        topPanel.add(new JLabel("Amount:"));
+        formPanel.add(cmbStudent);
+        formPanel.add(new JLabel("Amount:"));
         txtAmount = new JTextField();
-        topPanel.add(txtAmount);
+        formPanel.add(txtAmount);
+
         btnPay = new JButton("Pay Fees");
         btnRefresh = new JButton("Refresh");
-        topPanel.add(btnPay);
-        topPanel.add(btnRefresh);
-
-        // Middle panel: fee summary
-        JPanel summaryPanel = new JPanel(new FlowLayout());
-        summaryPanel.setBorder(BorderFactory.createTitledBorder("Fee Summary"));
-        lblTotalFees = new JLabel("Total Fees: ");
-        lblPaid = new JLabel("Paid: ");
-        lblRemaining = new JLabel("Remaining: ");
-        summaryPanel.add(lblTotalFees);
-        summaryPanel.add(lblPaid);
-        summaryPanel.add(lblRemaining);
-        topPanel.add(summaryPanel); // Actually we add after? Let's restructure cleanly:
-
-        // Better layout: top for payment form, then summary, then table of payment history
-        JPanel formPanel = new JPanel(new GridLayout(2, 2, 10, 10));
-        formPanel.add(new JLabel("Student:"));
-        formPanel.add(cmbStudent);
-        formPanel.add(new JLabel("Payment Amount:"));
-        formPanel.add(txtAmount);
         JPanel buttonPanel = new JPanel();
         buttonPanel.add(btnPay);
         buttonPanel.add(btnRefresh);
-        JPanel northPanel = new JPanel(new BorderLayout());
+
+        // Fee summary
+        JPanel summaryPanel = new JPanel(new FlowLayout(FlowLayout.LEFT, 15, 5));
+        summaryPanel.setBorder(BorderFactory.createTitledBorder("Fee Summary"));
+        lblTotalFees = new JLabel("Total Fees: $");
+        lblPaid = new JLabel("Paid: $");
+        lblRemaining = new JLabel("Remaining: $");
+        summaryPanel.add(lblTotalFees);
+        summaryPanel.add(lblPaid);
+        summaryPanel.add(lblRemaining);
+
+        JPanel northPanel = new JPanel(new BorderLayout(10, 10));
+        northPanel.add(summaryPanel, BorderLayout.NORTH);
         northPanel.add(formPanel, BorderLayout.CENTER);
         northPanel.add(buttonPanel, BorderLayout.SOUTH);
-        northPanel.add(summaryPanel, BorderLayout.NORTH); // summary above form
 
         add(northPanel, BorderLayout.NORTH);
 

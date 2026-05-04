@@ -94,16 +94,18 @@ public class TeacherPanel extends JPanel {
 
     private void addTeacher() {
         String id = txtId.getText().trim();
-        if (id.isEmpty()) {
-            JOptionPane.showMessageDialog(this, "ID cannot be empty");
-            return;
-        }
         String name = txtName.getText().trim();
         String email = txtEmail.getText().trim();
         String spec = txtSpecialization.getText().trim();
+        String salaryText = txtSalary.getText().trim();
+        if (id.isEmpty() || name.isEmpty() || email.isEmpty() || spec.isEmpty() || salaryText.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "All teacher fields are required");
+            return;
+        }
         double salary;
         try {
-            salary = Double.parseDouble(txtSalary.getText().trim());
+            salary = Double.parseDouble(salaryText);
+            if (salary < 0) throw new NumberFormatException();
         } catch (NumberFormatException e) {
             JOptionPane.showMessageDialog(this, "Invalid salary");
             return;
