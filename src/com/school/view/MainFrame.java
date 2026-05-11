@@ -1,7 +1,6 @@
 package com.school.view;
 
 import com.school.controller.SchoolController;
-
 import javax.swing.*;
 
 public class MainFrame extends JFrame {
