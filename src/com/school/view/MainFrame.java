@@ -18,7 +18,7 @@ public class MainFrame extends JFrame {
         tabbedPane.addTab("Teachers", new TeacherPanel(controller));
         tabbedPane.addTab("Courses", new CoursePanel(controller));
         tabbedPane.addTab("Enrollments", new EnrollmentPanel(controller));
-        tabbedPane.addTab("Fee Payments", new PaymentPanel(controller)); 
+        tabbedPane.addTab("Fee Payments", new PaymentPanel(controller));
 
         add(tabbedPane);
         setVisible(true);
